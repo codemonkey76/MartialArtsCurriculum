@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BeltLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <categories>
+    <TechniqueCategory name="Knowledge">
+      <techniques>
+        <Technique name="Participation and development of FCJJ" />
+      </techniques>
+    </TechniqueCategory>
+    <TechniqueCategory name="Solo Drills">
+      <techniques>
+        <Technique name="Demonstrate your own solo drill" />
+      </techniques>
+    </TechniqueCategory>
+    <TechniqueCategory name="Standing Combinations">
+      <techniques>
+        <Technique name="Double leg to run the pipe" />
+        <Technique name="Run the pipe to high crotch" />
+        <Technique name="Scissor takedown" />
+      </techniques>
+    </TechniqueCategory>
+    <TechniqueCategory name="Heel Hooks">
+      <techniques>
+        <Technique name="Heel hook defending knee shield" />
+        <Technique name="Heel hook defending x-guard" />
+        <Technique name="Reverse toehold" />
+        <Technique name="Inverted heel hook from 50/50" />
+        <Technique name="Heel hook from butterfly sweep" />
+        <Technique name="Heel hook from open guard (standing)" />
+        <Technique name="Knee reap submission" />
+        <Technique name="Knee reap footlock" />
+      </techniques>
+    </TechniqueCategory>
+  </categories>
+</BeltLevel>

@@ -1,0 +1,10 @@
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.exe.config
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.exe
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.pdb
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csprojResolveAssemblyReference.cache
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.Form1.resources
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.Properties.Resources.resources
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csproj.GenerateResource.Cache
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csproj.CoreCompileInputs.cache
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.exe
+C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.pdb
