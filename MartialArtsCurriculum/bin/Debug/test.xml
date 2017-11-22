@@ -2,25 +2,13 @@
 <CurriculumRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <categories>
     <CurriculumCategory>
-      <name>Adult BJJ</name>
+      <name>Adults BJJ</name>
       <levels>
         <CurriculumLevel>
           <name>White Belt</name>
           <curriculum>
             <CurriculumItem>
-              <name>1st Degree</name>
-              <categories />
-            </CurriculumItem>
-            <CurriculumItem>
-              <name>2nd Degree</name>
-              <categories />
-            </CurriculumItem>
-            <CurriculumItem>
-              <name>3rd Degree</name>
-              <categories />
-            </CurriculumItem>
-            <CurriculumItem>
-              <name>4th Degree</name>
+              <name>White Belt - 1st Degree</name>
               <categories />
             </CurriculumItem>
           </curriculum>

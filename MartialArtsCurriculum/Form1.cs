@@ -31,18 +31,40 @@ namespace MartialArtsCurriculum
             foreach (CurriculumCategory cat in data.categories)
             {
                 TreeNode tn = new TreeNode(cat.name);
+                tn.Tag = cat;
                 foreach (CurriculumLevel level in cat.levels)
                 {
                     TreeNode tn1 = new TreeNode(level.name);
+                    tn1.Tag = level;
                     foreach (CurriculumItem item in level.curriculum)
                     {
                         TreeNode tn2 = new TreeNode(item.name);
+                        tn2.Tag = item;
                         tn1.Nodes.Add(tn2);
                     }
                     tn.Nodes.Add(tn1);
                 }
                 this.tvCurriculum.Nodes.Add(tn);
             }
+        }
+        public void BindTechniques()
+        {
+            this.tvTechniques.Nodes.Clear();
+
+            CurriculumItem item = (CurriculumItem)tvCurriculum.SelectedNode.Tag;
+
+            foreach (TechniqueCategory cat in item.categories)
+            {
+                TreeNode tn = new TreeNode(cat.name);
+                tn.Tag = cat;
+                foreach (Technique tech in cat.techniques)
+                {
+                    TreeNode tn1 = new TreeNode(tech.name);
+                    tn1.Tag = tech;
+                    tn.Nodes.Add(tn1);
+                }
+                this.tvTechniques.Nodes.Add(tn);
+            }            
         }
         public CurriculumRoot LoadData(string filename)
         {
@@ -73,39 +95,7 @@ namespace MartialArtsCurriculum
             return testData;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //BeltLevel brown_4 = new BeltLevel();
-            //brown_4.categories = new TechniqueCategory[4];
-
-            //TechniqueCategory tc = brown_4.categories[0]= new TechniqueCategory("Knowledge");
-            
-            //tc.techniques = new Technique[1];
-            //tc.techniques[0] = new Technique("Participation and development of FCJJ");
-
-            //tc = brown_4.categories[1] = new TechniqueCategory("Solo Drills");
-            //tc.techniques = new Technique[1];
-            //tc.techniques[0] = new Technique("Demonstrate your own solo drill");
-
-            //tc = brown_4.categories[2] = new TechniqueCategory("Standing Combinations");
-            //tc.techniques = new Technique[3];
-            //tc.techniques[0] = new Technique("Double leg to run the pipe");
-            //tc.techniques[1] = new Technique("Run the pipe to high crotch");
-            //tc.techniques[2] = new Technique("Scissor takedown");
-
-            //tc = brown_4.categories[3] = new TechniqueCategory("Heel Hooks");
-            //tc.techniques = new Technique[8];
-            //tc.techniques[0] = new Technique("Heel hook defending knee shield");
-            //tc.techniques[1] = new Technique("Heel hook defending x-guard");
-            //tc.techniques[2] = new Technique("Reverse toehold");
-            //tc.techniques[3] = new Technique("Inverted heel hook from 50/50");
-            //tc.techniques[4] = new Technique("Heel hook from butterfly sweep");
-            //tc.techniques[5] = new Technique("Heel hook from open guard (standing)");
-            //tc.techniques[6] = new Technique("Knee reap submission");
-            //tc.techniques[7] = new Technique("Knee reap footlock");
-
-            
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -136,6 +126,48 @@ namespace MartialArtsCurriculum
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             data.Save("test.xml");
+        }
+
+        private void btnDeleteCurriculum_Click(object sender, EventArgs e)
+        {
+            TreeNode tn = tvCurriculum.SelectedNode;
+            DialogResult rslt = MessageBox.Show("Are you sure you want to delete the selected node?", "Delete Node", MessageBoxButtons.YesNo);
+
+            if (rslt == DialogResult.Yes)
+            {
+                Type NodeType = tn.Tag.GetType();
+
+                if (NodeType == typeof(CurriculumItem))
+                {
+                    CurriculumLevel level = (CurriculumLevel)tn.Parent.Tag;
+                    level.curriculum.Remove((CurriculumItem)tn.Tag);
+                }
+
+                if (NodeType == typeof(CurriculumLevel))
+                {
+                    CurriculumCategory cat = (CurriculumCategory)tn.Parent.Tag;
+                    cat.levels.Remove((CurriculumLevel)tn.Tag);                    
+                }
+
+                if (NodeType == typeof(CurriculumCategory))
+                {                    
+                    data.categories.Remove((CurriculumCategory)tn.Tag);
+                }
+                BindCurriculum();
+
+            }
+        }
+
+        private void tvCurriculum_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            Type NodeType = tvCurriculum.SelectedNode.Tag.GetType();
+            if (NodeType == typeof(CurriculumItem))
+            {
+                tvTechniques.Enabled = true;
+                BindTechniques();
+            }
+            else
+                tvTechniques.Enabled = false;
         }
     }
 }
