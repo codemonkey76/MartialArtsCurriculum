@@ -13,16 +13,22 @@ namespace MartialArtsCurriculum
         [XmlAttribute]
         public string name;
 
-        public Technique[] techniques;
-
+        public List<Technique> techniques;
+        public Technique AddTechnique(string name)
+        {
+            Technique tech = new Technique(name);
+            this.techniques.Add(tech);
+            return tech;
+        }
         public TechniqueCategory(string name)
         {
             this.name = name;
+            this.techniques = new List<Technique>();
         }
 
         public TechniqueCategory()
         {
-
+            this.techniques = new List<Technique>();
         }
     }
 }
