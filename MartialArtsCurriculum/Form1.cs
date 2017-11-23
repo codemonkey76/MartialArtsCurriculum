@@ -123,7 +123,7 @@ namespace MartialArtsCurriculum
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            data.Save("test.xml");
+            data.Save("Data.xml");
         }
 
         private void btnDeleteCurriculum_Click(object sender, EventArgs e)
@@ -384,7 +384,8 @@ namespace MartialArtsCurriculum
             string gradingDate = "24/11/2017";
 
             Student[] students = GetStudents();
-
+            if (!Directory.Exists("sheets"))
+                Directory.CreateDirectory("sheets");
             for (int i=0;i<students.Length;i++)
             {
                 string outputHTML = html.Replace(patternFirstName, students[i].FirstName);
@@ -400,7 +401,26 @@ namespace MartialArtsCurriculum
 
 
                 string categoryHTML = m.Groups["CategorySection"].Value;
-                MessageBox.Show(categoryHTML);
+                string startCatHTML = categoryHTML.Substring(0, categoryHTML.IndexOf("{{ StartTechniqueSection }}"));
+                string endCatHTML = categoryHTML.Substring(categoryHTML.IndexOf("{{ EndTechniqueSection }}") + 25);
+                Match m1 = Regex.Match(categoryHTML, "{{ StartTechniqueSection }}(?<TechniqueSection>.*?){{ EndTechniqueSection }}", RegexOptions.Singleline);
+                string techniqueHTML = m1.Groups["TechniqueSection"].Value;
+                CurriculumItem curriculum = data.categories[0].levels[0].curriculum[0];
+                string middleHTML = "";
+                foreach (TechniqueCategory cat in curriculum.categories)
+                {
+
+                    middleHTML += startCatHTML.Replace("{{ TechniqueCategory }}", cat.name);
+                    foreach (Technique tech in cat.techniques)
+                    {
+                        middleHTML += techniqueHTML.Replace("{{ Technique }}", tech.name);
+                    }
+                    middleHTML += endCatHTML;
+                }
+                string output = startHTML + middleHTML + endHTML;
+                StreamWriter sw =File.CreateText("sheets\\"+students[i].FirstName + students[i].LastName + ".html");
+                sw.Write(output);
+                sw.Close();
             }            
         }
     }

@@ -72,7 +72,10 @@ namespace MartialArtsCurriculum
                 }
             }
             else
+            {
                 txtCategory.Visible = false;
+                txtTechnique.Enabled = true;
+            }
         }
 
         private void txtCategory_TextChanged(object sender, EventArgs e)
