@@ -4,6 +4,8 @@ using System.IO;
 using System.Xml.Xsl;
 using System.Xml;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.FileIO;
+using System.Collections.Generic;
 
 namespace MartialArtsCurriculum
 {
@@ -330,46 +332,35 @@ namespace MartialArtsCurriculum
             //};
             //converter.Convert(doc);
         }
-        public Student[] GetStudents()
+        public List<Student> GetStudents()
         {
-            Student[] students = new Student[5];
+            List<Student> students = new List<Student>();
 
+            string path = "GradingList.csv";
+            if (File.Exists(path))
+            {
+                using (TextFieldParser csvParser = new TextFieldParser(path))
+                {
+                    csvParser.CommentTokens = new string[] { "#" };
+                    csvParser.SetDelimiters(new string[] { "," });
+                    csvParser.HasFieldsEnclosedInQuotes = true;
 
-            int i = 0;
-            students[i] = new Student();
-            students[i].FirstName = "Shane";
-            students[i].LastName = "Poppleton";
-            students[i].Instructor = "Daniel Lima";
-            students[i].Age = "41";
+                    //Skip header row
+                    csvParser.ReadLine();
 
-            i++;
-            students[i] = new Student();
-            students[i].FirstName = "Allan";
-            students[i].LastName = "Poppleton";
-            students[i].Instructor = "Shane Poppleton";
-            students[i].Age = "39";
-
-            i++;
-            students[i] = new Student();
-            students[i].FirstName = "Brendan";
-            students[i].LastName = "O'Donahue";
-            students[i].Instructor = "Shane Poppleton";
-            students[i].Age = "40";
-
-            i++;
-            students[i] = new Student();
-            students[i].FirstName = "Ronaldo";
-            students[i].LastName = "Dos Santos";
-            students[i].Instructor = "Shane Poppleton";
-            students[i].Age = "34";
-
-            i++;
-            students[i] = new Student();
-            students[i].FirstName = "Michael";
-            students[i].LastName = "Ireland";
-            students[i].Instructor = "Shane Poppleton";
-            students[i].Age = "38";
-
+                    while (!csvParser.EndOfData)
+                    {
+                        string[] fields = csvParser.ReadFields();
+                        Student student = new Student();
+                        student.FirstName = fields[0];
+                        student.LastName = fields[1];
+                        student.Instructor = fields[2];
+                        student.CurrentRank = fields[3];
+                        student.BeltAttempting = fields[4];
+                        students.Add(student);
+                    }
+                }
+            }
             return students;
         }
         private void btnOutputGradingSheet_Click(object sender, EventArgs e)
@@ -383,17 +374,17 @@ namespace MartialArtsCurriculum
             string patternBeltAttempting = "{{ BeltAttempting }}";
             string gradingDate = "24/11/2017";
 
-            Student[] students = GetStudents();
+            List<Student> students = GetStudents();
             if (!Directory.Exists("sheets"))
                 Directory.CreateDirectory("sheets");
-            for (int i=0;i<students.Length;i++)
+            foreach (Student student in students)
             {
-                string outputHTML = html.Replace(patternFirstName, students[i].FirstName);
-                outputHTML = outputHTML.Replace(patternLastName, students[i].LastName);
+                string outputHTML = html.Replace(patternFirstName, student.FirstName);
+                outputHTML = outputHTML.Replace(patternLastName, student.LastName);
                 outputHTML = outputHTML.Replace(patternDate, gradingDate);
-                outputHTML = outputHTML.Replace(patternInstructor, students[i].Instructor);
-                outputHTML = outputHTML.Replace(patternCurrentRank, students[i].CurrentRank);
-                outputHTML = outputHTML.Replace(patternBeltAttempting, students[i].BeltAttempting);
+                outputHTML = outputHTML.Replace(patternInstructor, student.Instructor);
+                outputHTML = outputHTML.Replace(patternCurrentRank, student.CurrentRank);
+                outputHTML = outputHTML.Replace(patternBeltAttempting, student.BeltAttempting);
 
                 string startHTML = outputHTML.Substring(0, outputHTML.IndexOf("{{ StartCategorySection }}"));
                 string endHTML = outputHTML.Substring(outputHTML.IndexOf("{{ EndCategorySection }}") + 24);
@@ -419,7 +410,7 @@ namespace MartialArtsCurriculum
                 }
                 string output = startHTML + middleHTML + endHTML;
                 output = output.Replace("images/logo.png", "../html/images/logo.png");
-                StreamWriter sw =File.CreateText("sheets\\"+students[i].FirstName + students[i].LastName + ".html");
+                StreamWriter sw =File.CreateText("sheets\\"+student.FirstName + student.LastName + ".html");
                 sw.Write(output);
                 sw.Close();
             }            
