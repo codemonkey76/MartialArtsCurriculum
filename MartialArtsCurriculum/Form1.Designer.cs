@@ -356,6 +356,7 @@
             this.btnCurUp.TabIndex = 18;
             this.btnCurUp.Text = "Up";
             this.btnCurUp.UseVisualStyleBackColor = true;
+            this.btnCurUp.Click += new System.EventHandler(this.btnCurUp_Click);
             // 
             // btnCurDown
             // 

@@ -11,6 +11,45 @@
               <name>White Belt - 1st Degree</name>
               <categories />
             </CurriculumItem>
+            <CurriculumItem>
+              <name>White Belt - 2nd Degree</name>
+              <categories />
+            </CurriculumItem>
+            <CurriculumItem>
+              <name>White Belt - 3rd Degree</name>
+              <categories />
+            </CurriculumItem>
+            <CurriculumItem>
+              <name>White Belt - 4th Degree</name>
+              <categories />
+            </CurriculumItem>
+            <CurriculumItem>
+              <name>Blue Belt</name>
+              <categories />
+            </CurriculumItem>
+          </curriculum>
+        </CurriculumLevel>
+        <CurriculumLevel>
+          <name>Blue Belt</name>
+          <curriculum>
+            <CurriculumItem>
+              <name>Blue Belt - 1st Degree</name>
+              <categories />
+            </CurriculumItem>
+          </curriculum>
+        </CurriculumLevel>
+      </levels>
+    </CurriculumCategory>
+    <CurriculumCategory>
+      <name>Kids BJJ</name>
+      <levels>
+        <CurriculumLevel>
+          <name>White Belt</name>
+          <curriculum>
+            <CurriculumItem>
+              <name>Test</name>
+              <categories />
+            </CurriculumItem>
           </curriculum>
         </CurriculumLevel>
       </levels>

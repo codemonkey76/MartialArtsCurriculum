@@ -90,6 +90,7 @@ namespace MartialArtsCurriculum
         {
             if (txtCategory.Text != "")
             {
+                populateLevels();
                 cbLevel.Enabled = true;
                 cbLevel.SelectedIndex = -1;
                 cbLevel.SelectedIndex = 0;

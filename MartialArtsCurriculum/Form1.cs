@@ -22,6 +22,7 @@ namespace MartialArtsCurriculum
             InitializeComponent();
             data = LoadData("Data.xml");
             BindCurriculum();
+            BindTechniques();
         }
 
         public void BindCurriculum()
@@ -50,8 +51,10 @@ namespace MartialArtsCurriculum
         public void BindTechniques()
         {
             this.tvTechniques.Nodes.Clear();
-
-            CurriculumItem item = (CurriculumItem)tvCurriculum.SelectedNode.Tag;
+            TreeNode currentNode = tvCurriculum.SelectedNode;
+            if (currentNode == null)
+                return;
+            CurriculumItem item = (CurriculumItem)currentNode.Tag;
 
             foreach (TechniqueCategory cat in item.categories)
             {
@@ -168,6 +171,46 @@ namespace MartialArtsCurriculum
             }
             else
                 tvTechniques.Enabled = false;
+        }
+        private void MoveUp(TreeNode tn)
+        {
+            TreeNode parent = tn.Parent;
+            int originalIndex = tn.Index;
+            TreeNode cloned = (TreeNode)tn.Clone();
+            tn.Remove();
+            if (parent != null)
+            {                
+                parent.Nodes.Insert(originalIndex - 1, cloned);
+                parent.TreeView.SelectedNode = cloned;
+            }
+            else
+            {
+                tvCurriculum.Nodes.Insert(originalIndex - 1, cloned);
+                tvCurriculum.SelectedNode = cloned;
+            }
+        }
+        private void MoveToPrev(TreeNode tn)
+        {
+            TreeNode parent = tn.Parent;
+            TreeNode cloned = (TreeNode)tn.Clone();
+            tn.Remove();
+            parent.PrevNode.Nodes.Add(cloned);
+            parent.TreeView.SelectedNode = cloned;
+        }
+
+        private void btnCurUp_Click(object sender, EventArgs e)
+        {
+            if (tvCurriculum.SelectedNode != null)
+            {
+                TreeNode tn = tvCurriculum.SelectedNode;
+                Type NodeType = tn.Tag.GetType();
+
+                if (tn.Index != 0)
+                    MoveUp(tn);
+                else
+                    if (tn.Parent !=null && tn.Parent.Index != 0)
+                        MoveToPrev(tn);
+            }
         }
     }
 }
