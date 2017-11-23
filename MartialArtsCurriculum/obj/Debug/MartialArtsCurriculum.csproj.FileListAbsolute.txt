@@ -11,7 +11,6 @@ C:\Users\Shane Poppleton\source\repos\MartialArtsCurriculum\MartialArtsCurriculu
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.exe.config
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.exe
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\MartialArtsCurriculum.pdb
-C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csprojResolveAssemblyReference.cache
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.Form1.resources
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.Properties.Resources.resources
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csproj.GenerateResource.Cache
@@ -20,3 +19,7 @@ C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurri
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.pdb
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.frmCurriculum.resources
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.frmTechnique.resources
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\html\css\app.css
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\html\images\logo.png
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\html\index.html
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\html\js\app.js
