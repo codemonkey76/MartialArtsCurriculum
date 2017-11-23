@@ -366,6 +366,7 @@
             this.btnCurDown.TabIndex = 19;
             this.btnCurDown.Text = "Down";
             this.btnCurDown.UseVisualStyleBackColor = true;
+            this.btnCurDown.Click += new System.EventHandler(this.btnCurDown_Click);
             // 
             // Form1
             // 
