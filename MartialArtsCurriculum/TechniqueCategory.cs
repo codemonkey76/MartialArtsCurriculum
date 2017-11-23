@@ -25,6 +25,7 @@ namespace MartialArtsCurriculum
             this.name = name;
             this.techniques = new List<Technique>();
         }
+       
 
         public TechniqueCategory()
         {

@@ -14,11 +14,12 @@
                   <techniques>
                     <Technique name="Foward Roll" />
                     <Technique name="Backward roll" />
+                    <Technique name="Side Break fall" />
                   </techniques>
                 </TechniqueCategory>
-                <TechniqueCategory name="test">
+                <TechniqueCategory name="Knowledge">
                   <techniques>
-                    <Technique name="test" />
+                    <Technique name="Dojo etiquette, basic disease control, meaning of osu" />
                   </techniques>
                 </TechniqueCategory>
               </categories>

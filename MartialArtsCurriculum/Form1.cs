@@ -17,6 +17,8 @@ namespace MartialArtsCurriculum
     public partial class Form1 : Form
     {
         CurriculumRoot data;
+        CurriculumItem selectedCurriculum;
+
         public Form1()
         {
             InitializeComponent();
@@ -54,9 +56,9 @@ namespace MartialArtsCurriculum
             TreeNode currentNode = tvCurriculum.SelectedNode;
             if (currentNode == null)
                 return;
-            CurriculumItem item = (CurriculumItem)currentNode.Tag;
+            selectedCurriculum = (CurriculumItem)currentNode.Tag;
 
-            foreach (TechniqueCategory cat in item.categories)
+            foreach (TechniqueCategory cat in selectedCurriculum.categories)
             {
                 TreeNode tn = new TreeNode(cat.name);
                 tn.Tag = cat;
@@ -266,7 +268,7 @@ namespace MartialArtsCurriculum
                 return;
             }
 
-            CurriculumItem item = (CurriculumItem)tvCurriculum.SelectedNode.Tag;
+            CurriculumItem item = selectedCurriculum;
             if (tvTechniques.SelectedNode != null)
             {
                 Type TechNodeType = tvTechniques.SelectedNode.Tag.GetType();
@@ -280,7 +282,33 @@ namespace MartialArtsCurriculum
 
             DialogResult rslt = f.ShowDialog();
             if (rslt == DialogResult.OK)
+            {                
                 BindTechniques();
+            }
+        }
+
+        private void btnDeleteTechnique_Click(object sender, EventArgs e)
+        {
+            TreeNode tn = tvTechniques.SelectedNode;
+            DialogResult rslt = MessageBox.Show("Are you sure you want to delete the selected node?", "Delete Node", MessageBoxButtons.YesNo);
+
+            if (rslt == DialogResult.Yes)
+            {
+                Type NodeType = tn.Tag.GetType();
+
+                if (NodeType == typeof(Technique))
+                {
+                    TechniqueCategory cat = (TechniqueCategory)tn.Parent.Tag;
+                    cat.techniques.Remove((Technique)tn.Tag);
+                }
+
+                if (NodeType == typeof(TechniqueCategory))
+                {
+                    TechniqueCategory cat = (TechniqueCategory)tn.Tag;
+                    selectedCurriculum.categories.Remove(cat);
+                }
+                BindTechniques();
+            }
         }
     }
 }

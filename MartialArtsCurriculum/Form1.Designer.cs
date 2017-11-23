@@ -139,6 +139,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.btnCurUp = new System.Windows.Forms.Button();
             this.btnCurDown = new System.Windows.Forms.Button();
+            this.btnTechDown = new System.Windows.Forms.Button();
+            this.btnTechUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -319,10 +321,11 @@
             this.btnDeleteTechnique.TabIndex = 10;
             this.btnDeleteTechnique.Text = "Delete Technique";
             this.btnDeleteTechnique.UseVisualStyleBackColor = true;
+            this.btnDeleteTechnique.Click += new System.EventHandler(this.btnDeleteTechnique_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(632, 25);
+            this.button7.Location = new System.Drawing.Point(746, 25);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(117, 23);
             this.button7.TabIndex = 11;
@@ -349,11 +352,31 @@
             this.btnCurDown.UseVisualStyleBackColor = true;
             this.btnCurDown.Click += new System.EventHandler(this.btnCurDown_Click);
             // 
+            // btnTechDown
+            // 
+            this.btnTechDown.Location = new System.Drawing.Point(632, 54);
+            this.btnTechDown.Name = "btnTechDown";
+            this.btnTechDown.Size = new System.Drawing.Size(43, 23);
+            this.btnTechDown.TabIndex = 21;
+            this.btnTechDown.Text = "Down";
+            this.btnTechDown.UseVisualStyleBackColor = true;
+            // 
+            // btnTechUp
+            // 
+            this.btnTechUp.Location = new System.Drawing.Point(632, 25);
+            this.btnTechUp.Name = "btnTechUp";
+            this.btnTechUp.Size = new System.Drawing.Size(43, 23);
+            this.btnTechUp.TabIndex = 20;
+            this.btnTechUp.Text = "Up";
+            this.btnTechUp.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 504);
+            this.ClientSize = new System.Drawing.Size(875, 472);
+            this.Controls.Add(this.btnTechDown);
+            this.Controls.Add(this.btnTechUp);
             this.Controls.Add(this.btnCurDown);
             this.Controls.Add(this.btnCurUp);
             this.Controls.Add(this.button7);
@@ -385,6 +408,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnCurUp;
         private System.Windows.Forms.Button btnCurDown;
+        private System.Windows.Forms.Button btnTechDown;
+        private System.Windows.Forms.Button btnTechUp;
     }
 }
 

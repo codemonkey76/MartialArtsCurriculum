@@ -14,7 +14,7 @@ namespace MartialArtsCurriculum
     {
         CurriculumItem curriculum;
         TechniqueCategory category;
-
+        public Technique newTechnique;
         public frmTechnique()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace MartialArtsCurriculum
         public frmTechnique(CurriculumItem curriculum, TechniqueCategory category)
         {
             this.category = category;
+            this.curriculum = curriculum;
             InitializeComponent();
             populateCategories();
         }
@@ -38,11 +39,21 @@ namespace MartialArtsCurriculum
         {
             cbCategory.Items.Clear();
             cbCategory.DisplayMember = "name";
-            
+            //cbCategory.SelectedIndex = 0;
             foreach (TechniqueCategory cat in curriculum.categories)
-                cbCategory.Items.Add(cat);
+            {
+                int index = cbCategory.Items.Add(cat);
+                if (this.category != null && this.category == cat)
+                {
+                    cbCategory.SelectedIndex = index;
+                    txtCategory.Visible = false;
+                    txtTechnique.Enabled = true;
+                }
+            }
             cbCategory.Items.Add("<New Category>");
-            cbCategory.SelectedIndex = 0;
+            if (cbCategory.SelectedIndex < 0)
+                cbCategory.SelectedIndex = 0;
+
         }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,12 +101,12 @@ namespace MartialArtsCurriculum
             if (cbCategory.SelectedIndex == cbCategory.Items.Count - 1)
             {
                 TechniqueCategory cat = curriculum.AddTechCategory(txtCategory.Text);
-                cat.AddTechnique(txtTechnique.Text);
+                newTechnique = cat.AddTechnique(txtTechnique.Text);
             }
             else
             {
                 TechniqueCategory cat = (TechniqueCategory)cbCategory.SelectedItem;
-                cat.AddTechnique(txtTechnique.Text);
+                newTechnique = cat.AddTechnique(txtTechnique.Text);
             }
         }
     }
