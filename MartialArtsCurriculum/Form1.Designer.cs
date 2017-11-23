@@ -134,11 +134,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnAddCurriculum = new System.Windows.Forms.Button();
             this.btnDeleteCurriculum = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnAddTechnique = new System.Windows.Forms.Button();
+            this.btnDeleteTechnique = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.btnCurUp = new System.Windows.Forms.Button();
             this.btnCurDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -303,23 +301,24 @@
             this.btnDeleteCurriculum.UseVisualStyleBackColor = true;
             this.btnDeleteCurriculum.Click += new System.EventHandler(this.btnDeleteCurriculum_Click);
             // 
-            // button5
+            // btnAddTechnique
             // 
-            this.button5.Location = new System.Drawing.Point(320, 468);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Add Technique";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddTechnique.Location = new System.Drawing.Point(320, 439);
+            this.btnAddTechnique.Name = "btnAddTechnique";
+            this.btnAddTechnique.Size = new System.Drawing.Size(113, 23);
+            this.btnAddTechnique.TabIndex = 9;
+            this.btnAddTechnique.Text = "Add Technique";
+            this.btnAddTechnique.UseVisualStyleBackColor = true;
+            this.btnAddTechnique.Click += new System.EventHandler(this.btnAddTechnique_Click);
             // 
-            // button6
+            // btnDeleteTechnique
             // 
-            this.button6.Location = new System.Drawing.Point(439, 468);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Delete Technique";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDeleteTechnique.Location = new System.Drawing.Point(439, 439);
+            this.btnDeleteTechnique.Name = "btnDeleteTechnique";
+            this.btnDeleteTechnique.Size = new System.Drawing.Size(113, 23);
+            this.btnDeleteTechnique.TabIndex = 10;
+            this.btnDeleteTechnique.Text = "Delete Technique";
+            this.btnDeleteTechnique.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -329,24 +328,6 @@
             this.button7.TabIndex = 11;
             this.button7.Text = "Print Grading Sheet";
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(320, 439);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(113, 23);
-            this.button12.TabIndex = 16;
-            this.button12.Text = "Add Category";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(439, 439);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(113, 23);
-            this.button13.TabIndex = 17;
-            this.button13.Text = "Delete Category";
-            this.button13.UseVisualStyleBackColor = true;
             // 
             // btnCurUp
             // 
@@ -375,11 +356,9 @@
             this.ClientSize = new System.Drawing.Size(755, 504);
             this.Controls.Add(this.btnCurDown);
             this.Controls.Add(this.btnCurUp);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDeleteTechnique);
+            this.Controls.Add(this.btnAddTechnique);
             this.Controls.Add(this.btnDeleteCurriculum);
             this.Controls.Add(this.btnAddCurriculum);
             this.Controls.Add(this.label2);
@@ -401,11 +380,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddCurriculum;
         private System.Windows.Forms.Button btnDeleteCurriculum;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnAddTechnique;
+        private System.Windows.Forms.Button btnDeleteTechnique;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button btnCurUp;
         private System.Windows.Forms.Button btnCurDown;
     }

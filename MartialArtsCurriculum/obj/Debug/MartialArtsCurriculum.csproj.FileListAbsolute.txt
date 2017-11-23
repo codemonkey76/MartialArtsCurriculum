@@ -19,3 +19,4 @@ C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurri
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.exe
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.pdb
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.frmCurriculum.resources
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.frmTechnique.resources

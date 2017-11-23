@@ -254,5 +254,31 @@ namespace MartialArtsCurriculum
             }
             tvCurriculum.Focus();
         }
+
+        private void btnAddTechnique_Click(object sender, EventArgs e)
+        {
+            Type NodeType = tvCurriculum.SelectedNode.Tag.GetType();
+            frmTechnique f = null;
+
+            if (NodeType != typeof(CurriculumItem))
+            {
+                MessageBox.Show("Click a curriculum item in the left tree first");
+                return;
+            }
+
+            CurriculumItem item = (CurriculumItem)tvCurriculum.SelectedNode.Tag;
+            if (tvTechniques.SelectedNode != null)
+            {
+                Type TechNodeType = tvTechniques.SelectedNode.Tag.GetType();
+                if (TechNodeType == typeof(Technique))
+                    f = new frmTechnique(item, (TechniqueCategory)tvTechniques.SelectedNode.Parent.Tag);
+                else
+                    f = new frmTechnique(item, (TechniqueCategory)tvTechniques.SelectedNode.Tag);
+            }
+            else
+                f = new frmTechnique(item);
+
+            f.ShowDialog();
+        }
     }
 }
