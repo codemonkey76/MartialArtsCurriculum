@@ -278,7 +278,9 @@ namespace MartialArtsCurriculum
             else
                 f = new frmTechnique(item);
 
-            f.ShowDialog();
+            DialogResult rslt = f.ShowDialog();
+            if (rslt == DialogResult.OK)
+                BindTechniques();
         }
     }
 }

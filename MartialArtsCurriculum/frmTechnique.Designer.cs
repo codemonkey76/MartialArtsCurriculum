@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCategory = new System.Windows.Forms.TextBox();
+            this.txtTechnique = new System.Windows.Forms.TextBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(11, 24);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(143, 21);
+            this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -54,20 +55,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Category";
             // 
-            // textBox1
+            // txtCategory
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Visible = false;
+            this.txtCategory.Location = new System.Drawing.Point(160, 24);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(142, 20);
+            this.txtCategory.TabIndex = 2;
+            this.txtCategory.Visible = false;
+            this.txtCategory.TextChanged += new System.EventHandler(this.txtCategory_TextChanged);
             // 
-            // textBox2
+            // txtTechnique
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtTechnique.Location = new System.Drawing.Point(11, 76);
+            this.txtTechnique.Name = "txtTechnique";
+            this.txtTechnique.Size = new System.Drawing.Size(291, 20);
+            this.txtTechnique.TabIndex = 3;
+            this.txtTechnique.TextChanged += new System.EventHandler(this.txtTechnique_TextChanged);
             // 
             // btnOK
             // 
@@ -78,6 +81,7 @@
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -108,10 +112,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTechnique);
+            this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCategory);
             this.Name = "frmTechnique";
             this.Text = "Technique";
             this.ResumeLayout(false);
@@ -121,10 +125,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCategory;
+        private System.Windows.Forms.TextBox txtTechnique;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;

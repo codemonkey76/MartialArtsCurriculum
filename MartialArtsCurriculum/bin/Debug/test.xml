@@ -9,7 +9,19 @@
           <curriculum>
             <CurriculumItem>
               <name>White Belt - 1st Degree</name>
-              <categories />
+              <categories>
+                <TechniqueCategory name="Solo Drills">
+                  <techniques>
+                    <Technique name="Foward Roll" />
+                    <Technique name="Backward roll" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="test">
+                  <techniques>
+                    <Technique name="test" />
+                  </techniques>
+                </TechniqueCategory>
+              </categories>
             </CurriculumItem>
             <CurriculumItem>
               <name>White Belt - 2nd Degree</name>

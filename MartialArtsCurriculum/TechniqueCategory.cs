@@ -30,5 +30,9 @@ namespace MartialArtsCurriculum
         {
             this.techniques = new List<Technique>();
         }
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
