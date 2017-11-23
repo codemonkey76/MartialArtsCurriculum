@@ -418,6 +418,7 @@ namespace MartialArtsCurriculum
                     middleHTML += endCatHTML;
                 }
                 string output = startHTML + middleHTML + endHTML;
+                output = output.Replace("images/logo.png", "../html/images/logo.png");
                 StreamWriter sw =File.CreateText("sheets\\"+students[i].FirstName + students[i].LastName + ".html");
                 sw.Write(output);
                 sw.Close();
