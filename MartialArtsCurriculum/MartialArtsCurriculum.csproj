@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,19 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="BeltLevel.cs" />
     <Compile Include="CurriculumItem.cs" />
@@ -62,6 +50,12 @@
     <Compile Include="frmCurriculum.Designer.cs">
       <DependentUpon>frmCurriculum.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGradingSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGradingSheet.Designer.cs">
+      <DependentUpon>frmGradingSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTechnique.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +64,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="Technique.cs" />
     <Compile Include="TechniqueCategory.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -77,6 +72,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCurriculum.resx">
       <DependentUpon>frmCurriculum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGradingSheet.resx">
+      <DependentUpon>frmGradingSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTechnique.resx">
       <DependentUpon>frmTechnique.cs</DependentUpon>
@@ -90,6 +88,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,6 +115,14 @@
     <Content Include="html\js\app.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

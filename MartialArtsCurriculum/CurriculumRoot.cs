@@ -27,16 +27,23 @@ namespace MartialArtsCurriculum
         public void Save(string filename)
         {
             XmlSerializer x = new XmlSerializer(typeof(CurriculumRoot));
-            FileStream fs = File.Create("test.xml");
+            FileStream fs = File.Create(filename);
             x.Serialize(new StreamWriter(fs),this);
             fs.Close();
         }
         public static CurriculumRoot Load(string filename)
         {
-            XmlSerializer x = new XmlSerializer(typeof(CurriculumRoot));
-            FileStream fs = File.OpenRead("test.xml");
-            CurriculumRoot root = (CurriculumRoot)x.Deserialize(fs);
-            fs.Close();
+            CurriculumRoot root = null;
+            if (File.Exists(filename))
+            {
+                XmlSerializer x = new XmlSerializer(typeof(CurriculumRoot));
+
+                FileStream fs = File.OpenRead(filename);
+                root = (CurriculumRoot)x.Deserialize(fs);
+                fs.Close();
+            }
+            else
+                root = new CurriculumRoot();
             return root;
         }
     }

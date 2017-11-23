@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml.Serialization;
 using System.Xml.Xsl;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace MartialArtsCurriculum
 {
@@ -309,6 +302,106 @@ namespace MartialArtsCurriculum
                 }
                 BindTechniques();
             }
+        }
+        
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //var converter = new BasicConverter(new PdfTools());
+            ////var converter = new SynchronizedConverter(new PdfTools());
+            
+            //var doc = new HtmlToPdfDocument()
+            //{
+            //    GlobalSettings = {
+            //        ColorMode = ColorMode.Color,
+            //        Orientation = DinkToPdf.Orientation.Portrait,
+            //        PaperSize = PaperKind.A4,
+            //        Out = @"C:\test.pdf",
+
+            //    },
+            //    Objects = {
+            //        new ObjectSettings() {
+            //            PagesCount = true,
+            //            HtmlContent = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur mauris eget ultrices  iaculis. Ut                               odio viverra, molestie lectus nec, venenatis turpis.",
+            //            WebSettings = { DefaultEncoding = "utf-8" },
+            //            HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
+            //        }
+            //    }
+            //};
+            //converter.Convert(doc);
+        }
+        public Student[] GetStudents()
+        {
+            Student[] students = new Student[5];
+
+
+            int i = 0;
+            students[i] = new Student();
+            students[i].FirstName = "Shane";
+            students[i].LastName = "Poppleton";
+            students[i].Instructor = "Daniel Lima";
+            students[i].Age = "41";
+
+            i++;
+            students[i] = new Student();
+            students[i].FirstName = "Allan";
+            students[i].LastName = "Poppleton";
+            students[i].Instructor = "Shane Poppleton";
+            students[i].Age = "39";
+
+            i++;
+            students[i] = new Student();
+            students[i].FirstName = "Brendan";
+            students[i].LastName = "O'Donahue";
+            students[i].Instructor = "Shane Poppleton";
+            students[i].Age = "40";
+
+            i++;
+            students[i] = new Student();
+            students[i].FirstName = "Ronaldo";
+            students[i].LastName = "Dos Santos";
+            students[i].Instructor = "Shane Poppleton";
+            students[i].Age = "34";
+
+            i++;
+            students[i] = new Student();
+            students[i].FirstName = "Michael";
+            students[i].LastName = "Ireland";
+            students[i].Instructor = "Shane Poppleton";
+            students[i].Age = "38";
+
+            return students;
+        }
+        private void btnOutputGradingSheet_Click(object sender, EventArgs e)
+        {
+            string html = File.ReadAllText("html\\index.html");
+            string patternFirstName = "{{ FirstName }}";
+            string patternLastName = "{{ LastName }}";
+            string patternDate = "{{ Date }}";
+            string patternInstructor = "{{ Instructor }}";
+            string patternCurrentRank = "{{ CurrentRank }}";
+            string patternBeltAttempting = "{{ BeltAttempting }}";
+            string gradingDate = "24/11/2017";
+
+            Student[] students = GetStudents();
+
+            for (int i=0;i<students.Length;i++)
+            {
+                string outputHTML = html.Replace(patternFirstName, students[i].FirstName);
+                outputHTML = outputHTML.Replace(patternLastName, students[i].LastName);
+                outputHTML = outputHTML.Replace(patternDate, gradingDate);
+                outputHTML = outputHTML.Replace(patternInstructor, students[i].Instructor);
+                outputHTML = outputHTML.Replace(patternCurrentRank, students[i].CurrentRank);
+                outputHTML = outputHTML.Replace(patternBeltAttempting, students[i].BeltAttempting);
+
+                string startHTML = outputHTML.Substring(0, outputHTML.IndexOf("{{ StartCategorySection }}"));
+                string endHTML = outputHTML.Substring(outputHTML.IndexOf("{{ EndCategorySection }}") + 24);
+                Match m = Regex.Match(outputHTML, "{{ StartCategorySection }}(?<CategorySection>.*?){{ EndCategorySection }}", RegexOptions.Singleline);
+
+
+                string categoryHTML = m.Groups["CategorySection"].Value;
+                MessageBox.Show(categoryHTML);
+            }            
         }
     }
 }

@@ -136,7 +136,7 @@
             this.btnDeleteCurriculum = new System.Windows.Forms.Button();
             this.btnAddTechnique = new System.Windows.Forms.Button();
             this.btnDeleteTechnique = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnOutputGradingSheet = new System.Windows.Forms.Button();
             this.btnCurUp = new System.Windows.Forms.Button();
             this.btnCurDown = new System.Windows.Forms.Button();
             this.btnTechDown = new System.Windows.Forms.Button();
@@ -323,14 +323,15 @@
             this.btnDeleteTechnique.UseVisualStyleBackColor = true;
             this.btnDeleteTechnique.Click += new System.EventHandler(this.btnDeleteTechnique_Click);
             // 
-            // button7
+            // btnOutputGradingSheet
             // 
-            this.button7.Location = new System.Drawing.Point(746, 25);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(117, 23);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Print Grading Sheet";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnOutputGradingSheet.Location = new System.Drawing.Point(746, 25);
+            this.btnOutputGradingSheet.Name = "btnOutputGradingSheet";
+            this.btnOutputGradingSheet.Size = new System.Drawing.Size(117, 23);
+            this.btnOutputGradingSheet.TabIndex = 11;
+            this.btnOutputGradingSheet.Text = "Print Grading Sheet";
+            this.btnOutputGradingSheet.UseVisualStyleBackColor = true;
+            this.btnOutputGradingSheet.Click += new System.EventHandler(this.btnOutputGradingSheet_Click);
             // 
             // btnCurUp
             // 
@@ -379,7 +380,7 @@
             this.Controls.Add(this.btnTechUp);
             this.Controls.Add(this.btnCurDown);
             this.Controls.Add(this.btnCurUp);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btnOutputGradingSheet);
             this.Controls.Add(this.btnDeleteTechnique);
             this.Controls.Add(this.btnAddTechnique);
             this.Controls.Add(this.btnDeleteCurriculum);
@@ -405,7 +406,7 @@
         private System.Windows.Forms.Button btnDeleteCurriculum;
         private System.Windows.Forms.Button btnAddTechnique;
         private System.Windows.Forms.Button btnDeleteTechnique;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnOutputGradingSheet;
         private System.Windows.Forms.Button btnCurUp;
         private System.Windows.Forms.Button btnCurDown;
         private System.Windows.Forms.Button btnTechDown;
