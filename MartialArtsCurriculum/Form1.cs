@@ -355,14 +355,55 @@ namespace MartialArtsCurriculum
                         student.FirstName = fields[0];
                         student.LastName = fields[1];
                         student.Instructor = fields[2];
-                        student.CurrentRank = fields[3];
-                        student.BeltAttempting = fields[4];
+                        student.Category = fields[3];
+                        student.Level = fields[4];
+                        student.Rank = fields[5];
+                        student.RankAttempting = fields[6];
                         students.Add(student);
                     }
                 }
             }
             return students;
         }
+        public List<CurriculumItem> GetStudentCurriculum(Student student)
+        {
+            CurriculumCategory cat = data.categories.Find(x => x.name == student.Category);
+            List<CurriculumLevel> levelList = new List<CurriculumLevel>();
+            bool found = false;
+            List<CurriculumItem> curriculumList = new List<CurriculumItem>();
+
+            foreach (CurriculumLevel level in cat.levels)
+            {
+                if (level.name == student.Level)
+                {
+                    foreach (CurriculumItem item in level.curriculum)
+                    {
+                        if (student.Rank == "")
+                            found = true;
+
+                        if (item.name == student.Rank)
+                        {
+                            found = true;
+                            continue;
+                        }
+
+                        if (found)
+                        {
+                            curriculumList.Add(item);
+                        }
+                        if (item.name == student.RankAttempting)
+                        {
+                            found = false;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+
+            return curriculumList;
+        }
+
         private void btnOutputGradingSheet_Click(object sender, EventArgs e)
         {
             string html = File.ReadAllText("html\\index.html");
@@ -377,14 +418,16 @@ namespace MartialArtsCurriculum
             List<Student> students = GetStudents();
             if (!Directory.Exists("sheets"))
                 Directory.CreateDirectory("sheets");
+
             foreach (Student student in students)
             {
+                List<CurriculumItem> sheets = GetStudentCurriculum(student);
                 string outputHTML = html.Replace(patternFirstName, student.FirstName);
                 outputHTML = outputHTML.Replace(patternLastName, student.LastName);
                 outputHTML = outputHTML.Replace(patternDate, gradingDate);
                 outputHTML = outputHTML.Replace(patternInstructor, student.Instructor);
-                outputHTML = outputHTML.Replace(patternCurrentRank, student.CurrentRank);
-                outputHTML = outputHTML.Replace(patternBeltAttempting, student.BeltAttempting);
+                outputHTML = outputHTML.Replace(patternCurrentRank, student.Rank);
+                outputHTML = outputHTML.Replace(patternBeltAttempting, student.RankAttempting);
 
                 string startHTML = outputHTML.Substring(0, outputHTML.IndexOf("{{ StartCategorySection }}"));
                 string endHTML = outputHTML.Substring(outputHTML.IndexOf("{{ EndCategorySection }}") + 24);
@@ -396,23 +439,25 @@ namespace MartialArtsCurriculum
                 string endCatHTML = categoryHTML.Substring(categoryHTML.IndexOf("{{ EndTechniqueSection }}") + 25);
                 Match m1 = Regex.Match(categoryHTML, "{{ StartTechniqueSection }}(?<TechniqueSection>.*?){{ EndTechniqueSection }}", RegexOptions.Singleline);
                 string techniqueHTML = m1.Groups["TechniqueSection"].Value;
-                CurriculumItem curriculum = data.categories[0].levels[0].curriculum[0];
-                string middleHTML = "";
-                foreach (TechniqueCategory cat in curriculum.categories)
+                foreach (CurriculumItem curriculum in sheets)
                 {
-
-                    middleHTML += startCatHTML.Replace("{{ TechniqueCategory }}", cat.name);
-                    foreach (Technique tech in cat.techniques)
+                    string middleHTML = "";
+                    foreach (TechniqueCategory cat in curriculum.categories)
                     {
-                        middleHTML += techniqueHTML.Replace("{{ Technique }}", tech.name);
+
+                        middleHTML += startCatHTML.Replace("{{ TechniqueCategory }}", cat.name);
+                        foreach (Technique tech in cat.techniques)
+                        {
+                            middleHTML += techniqueHTML.Replace("{{ Technique }}", tech.name);
+                        }
+                        middleHTML += endCatHTML;
                     }
-                    middleHTML += endCatHTML;
+                    string output = startHTML + middleHTML + endHTML;
+                    output = output.Replace("images/logo.png", "../html/images/logo.png");
+                    StreamWriter sw = File.CreateText("sheets\\" + student.FirstName + student.LastName + "-" + curriculum.name + ".html");
+                    sw.Write(output);
+                    sw.Close();
                 }
-                string output = startHTML + middleHTML + endHTML;
-                output = output.Replace("images/logo.png", "../html/images/logo.png");
-                StreamWriter sw =File.CreateText("sheets\\"+student.FirstName + student.LastName + ".html");
-                sw.Write(output);
-                sw.Close();
             }            
         }
     }

@@ -12,7 +12,10 @@ namespace MartialArtsCurriculum
         public string LastName;
         public string Instructor;
         public string Age;
-        public string CurrentRank;
-        public string BeltAttempting;
+        public string Category;
+        public string Level;
+        public string Rank;
+        public string LevelAttempting;
+        public string RankAttempting;        
     }
 }
