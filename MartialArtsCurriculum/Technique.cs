@@ -7,10 +7,11 @@ using System.Xml.Serialization;
 
 namespace MartialArtsCurriculum
 {
-    public class Technique
+    public class Technique : iHasName
     {
         [XmlAttribute]
-        public string name;
+        public string name { get { return _name; } set { _name = value; } }
+        string _name;
 
         public Technique(string name)
         {

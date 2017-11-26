@@ -2,13 +2,10 @@
 <CurriculumRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <categories>
     <CurriculumCategory>
-      <name>Adults BJJ</name>
       <levels>
         <CurriculumLevel>
-          <name>White Belt</name>
           <curriculum>
             <CurriculumItem>
-              <name>White Belt - 1st Degree</name>
               <categories>
                 <TechniqueCategory name="Knowledge">
                   <techniques>
@@ -22,7 +19,7 @@
                     <Technique name="Side break fall" />
                   </techniques>
                 </TechniqueCategory>
-                <TechniqueCategory name="Partner Drill">
+                <TechniqueCategory name="Partner Drills">
                   <techniques>
                     <Technique name="Run around the legs" />
                   </techniques>
@@ -47,7 +44,7 @@
                     <Technique name="Knee ride" />
                   </techniques>
                 </TechniqueCategory>
-                <TechniqueCategory name="Guards">
+                <TechniqueCategory name="Guard">
                   <techniques>
                     <Technique name="Closed guard - posture up" />
                     <Technique name="Closed guard - break posture" />
@@ -72,97 +69,282 @@
                   </techniques>
                 </TechniqueCategory>
               </categories>
+              <name>White Belt - 1st Degree</name>
             </CurriculumItem>
             <CurriculumItem>
+              <categories>
+                <TechniqueCategory name="Knowledge">
+                  <techniques>
+                    <Technique name="Contagious disease control" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Solo Drills">
+                  <techniques>
+                    <Technique name="Backward roll" />
+                    <Technique name="Forward roll" />
+                    <Technique name="Sideway roll" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Partner Drills">
+                  <techniques>
+                    <Technique name="Spinning around turtle position (flat)" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Standing">
+                  <techniques>
+                    <Technique name="Happo no kuzushi (pulling 8 directions)" />
+                    <Technique name="No-gi grips - Duck under to standing back control" />
+                    <Technique name="Kumi kata - grip break - arm drag - standing back control" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Controls (From and back)">
+                  <techniques>
+                    <Technique name="Kesa gatame" />
+                    <Technique name="Kuzure kesa gatame" />
+                    <Technique name="Side control" />
+                    <Technique name="North / south" />
+                    <Technique name="Mount" />
+                    <Technique name="Back mount" />
+                    <Technique name="Back grab bottom" />
+                    <Technique name="Back grab top" />
+                    <Technique name="Knee ride" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Guard (Sweeps)">
+                  <techniques>
+                    <Technique name="Closed guard (Pendulum sweep)" />
+                    <Technique name="Closed guard (Arm drag to back)" />
+                    <Technique name="Closed guard (Kick back sweep)" />
+                    <Technique name="Half-guard (Bridge sweep)" />
+                    <Technique name="Half-guard (Take back)" />
+                    <Technique name="Spider guard (3 point sweep)" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Turtle Position">
+                  <techniques>
+                    <Technique name="Half-guard reclaim from turtle (Back)" />
+                    <Technique name="Half-guard reclaim from turtle (Front)" />
+                    <Technique name="Roll to side from turtle (Side)" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Self Defence">
+                  <techniques>
+                    <Technique name="2-on-1 wrist grab defence" />
+                    <Technique name="2-on-2 wrist grab defence" />
+                  </techniques>
+                </TechniqueCategory>
+              </categories>
               <name>White Belt - 2nd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories>
+                <TechniqueCategory name="Knowledge">
+                  <techniques>
+                    <Technique name="Basic jiu-jitsu terminology" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Solo Drills">
+                  <techniques>
+                    <Technique name="Backwards hip escape" />
+                    <Technique name="Forwards hip escape" />
+                    <Technique name="Seated hip escape backwards" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Partner Drills">
+                  <techniques>
+                    <Technique name="Knee ride side-to-side (drill)" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Standing">
+                  <techniques>
+                    <Technique name="Double leg outside trip" />
+                    <Technique name="Low single leg" />
+                    <Technique name="Snatch to run the pipe" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Controls (Escapes)">
+                  <techniques>
+                    <Technique name="Kesa gatame" />
+                    <Technique name="Kuzure kesa gatame" />
+                    <Technique name="Side control" />
+                    <Technique name="North / south" />
+                    <Technique name="Mount" />
+                    <Technique name="Back mount" />
+                    <Technique name="Back grab bottom" />
+                    <Technique name="Back grab top" />
+                    <Technique name="Knee ride" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Guard (Passes)">
+                  <techniques>
+                    <Technique name="Closed guard (Knee accross)" />
+                    <Technique name="Closed guard (Stacking double under)" />
+                    <Technique name="Closed guard (Standing knee accross)" />
+                    <Technique name="Half-guard (Flat pass to mount)" />
+                    <Technique name="Spider guard (2 x variations)" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Turtle Position">
+                  <techniques>
+                    <Technique name="Head and shoulder turn over" />
+                    <Technique name="Cross lapel roll over to back grab" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Self Defence">
+                  <techniques>
+                    <Technique name="Rear naked choke (Standing)" />
+                    <Technique name="Rear naked choke (Standing, lean back)" />
+                  </techniques>
+                </TechniqueCategory>
+              </categories>
               <name>White Belt - 3rd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories>
+                <TechniqueCategory name="Knowledge">
+                  <techniques>
+                    <Technique name="Basic jiu-jitsu history" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Solo Drills">
+                  <techniques>
+                    <Technique name="Triangle sit ups" />
+                    <Technique name="Omoplata sit ups" />
+                    <Technique name="Lean forward omoplata" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Partner Drills">
+                  <techniques>
+                    <Technique name="Triangle drill" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Chokes &amp; Defence">
+                  <techniques>
+                    <Technique name="Cross lapel choke" />
+                    <Technique name="Ezekiel choke" />
+                    <Technique name="Head arm choke" />
+                    <Technique name="Rear naked choke" />
+                    <Technique name="Rear cross lapel choke" />
+                    <Technique name="Rear arm trap lapel choke" />
+                    <Technique name="Triangle choke" />
+                    <Technique name="Arm-in guillotine" />
+                    <Technique name="Arm-out guillotine" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Arm Bars &amp; Defence">
+                  <techniques>
+                    <Technique name="Mount armbar" />
+                    <Technique name="Guard armbar" />
+                    <Technique name="Side control far armbar" />
+                    <Technique name="Knee ride far armbar" />
+                    <Technique name="Kesa gatame straight figure 4" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Shoulder Locks &amp; Defence">
+                  <techniques>
+                    <Technique name="Side control americana" />
+                    <Technique name="Kimura from bottom position" />
+                    <Technique name="Kimura from top position" />
+                    <Technique name="Omoplata" />
+                    <Technique name="Kesa gatame bent figure 4" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Self Defence">
+                  <techniques>
+                    <Technique name="Choke on ground" />
+                    <Technique name="Arms pinned on ground" />
+                  </techniques>
+                </TechniqueCategory>
+                <TechniqueCategory name="Standing">
+                  <techniques>
+                    <Technique name="Low double leg" />
+                    <Technique name="High double leg" />
+                    <Technique name="Double leg turning" />
+                  </techniques>
+                </TechniqueCategory>
+              </categories>
               <name>White Belt - 4th Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Blue Belt</name>
-              <categories />
             </CurriculumItem>
           </curriculum>
+          <name>White Belt</name>
         </CurriculumLevel>
         <CurriculumLevel>
-          <name>Blue Belt</name>
           <curriculum>
             <CurriculumItem>
+              <categories />
               <name>Blue Belt - 1st Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Blue Belt - 2nd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Blue Belt - 3rd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Blue Belt - 4th Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Purple Belt</name>
-              <categories />
             </CurriculumItem>
           </curriculum>
+          <name>Blue Belt</name>
         </CurriculumLevel>
         <CurriculumLevel>
-          <name>Purple Belt</name>
           <curriculum>
             <CurriculumItem>
+              <categories />
               <name>Purple Belt - 1st Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Purple Belt - 2nd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Purple Belt - 3rd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Purple Belt - 4th Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
-              <name>Brown Belt</name>
               <categories />
+              <name>Brown Belt</name>
             </CurriculumItem>
           </curriculum>
+          <name>Purple Belt</name>
         </CurriculumLevel>
         <CurriculumLevel>
-          <name>Brown Belt</name>
           <curriculum>
             <CurriculumItem>
+              <categories />
               <name>Brown Belt - 1st Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Brown Belt - 2nd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
+              <categories />
               <name>Brown Belt - 3rd Degree</name>
-              <categories />
             </CurriculumItem>
             <CurriculumItem>
-              <name>Brown Belt - 4th Degree</name>
               <categories />
+              <name>Brown Belt - 4th Degree</name>
             </CurriculumItem>
           </curriculum>
+          <name>Brown Belt</name>
         </CurriculumLevel>
       </levels>
+      <name>Adults BJJ</name>
     </CurriculumCategory>
   </categories>
 </CurriculumRoot>

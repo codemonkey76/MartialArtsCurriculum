@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MartialArtsCurriculum
 {
-    public class CurriculumCategory
+    public class CurriculumCategory : iHasName
     {
-        public string name;
+        string _name;
+        public string name { get { return _name; } set { _name = value; } }
 
         public List<CurriculumLevel> levels;
         public CurriculumLevel AddLevel(string name)

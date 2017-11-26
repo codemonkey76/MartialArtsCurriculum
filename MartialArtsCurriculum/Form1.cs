@@ -169,7 +169,7 @@ namespace MartialArtsCurriculum
             else
                 tvTechniques.Enabled = false;
         }
-        private void MoveUp(TreeNode tn)
+        private void MoveUp(TreeNode tn, TreeView tv)
         {
             TreeNode parent = tn.Parent;
             int originalIndex = tn.Index;
@@ -182,8 +182,8 @@ namespace MartialArtsCurriculum
             }
             else
             {
-                tvCurriculum.Nodes.Insert(originalIndex - 1, cloned);
-                tvCurriculum.SelectedNode = cloned;
+                tv.Nodes.Insert(originalIndex - 1, cloned);
+                tv.SelectedNode = cloned;
             }
         }
 
@@ -195,7 +195,7 @@ namespace MartialArtsCurriculum
             parent.PrevNode.Nodes.Add(cloned);
             parent.TreeView.SelectedNode = cloned;
         }
-        private void MoveDown(TreeNode tn)
+        private void MoveDown(TreeNode tn, TreeView tv)
         {
             TreeNode parent = tn.Parent;
             int originalIndex = tn.Index;
@@ -208,8 +208,8 @@ namespace MartialArtsCurriculum
             }
             else
             {
-                tvCurriculum.Nodes.Insert(originalIndex + 1, cloned);
-                tvCurriculum.SelectedNode = cloned;
+                tv.Nodes.Insert(originalIndex + 1, cloned);
+                tv.SelectedNode = cloned;
             }
         }
 
@@ -229,7 +229,7 @@ namespace MartialArtsCurriculum
                 TreeNode tn = tvCurriculum.SelectedNode;
 
                 if (tn.Index != 0)
-                    MoveUp(tn);
+                    MoveUp(tn, tvCurriculum);
                 else
                     if (tn.Parent !=null && tn.Parent.Index != 0)
                         MoveToPrev(tn);
@@ -244,7 +244,7 @@ namespace MartialArtsCurriculum
                 TreeNode tn = tvCurriculum.SelectedNode;
 
                 if (tn.NextNode != null)
-                    MoveDown(tn);
+                    MoveDown(tn, tvCurriculum);
                 else
                     if (tn.Parent != null && tn.Parent.Index != tn.Parent.Nodes.Count-1)
                     MoveToNext(tn);
@@ -459,6 +459,68 @@ namespace MartialArtsCurriculum
                     sw.Close();
                 }
             }            
+        }
+
+        public bool InputBox(string caption, string prompt, object clickedNode)
+        {
+            iHasName node = (iHasName)clickedNode;
+
+            frmInputBox f = new frmInputBox(caption, prompt, node.name);
+
+            f.ShowDialog();
+            if (f.DialogResult == DialogResult.OK)
+            {
+                node.name = f.txtInput.Text;
+                return true;
+            }
+            return false;
+        }
+
+        private void tvCurriculum_DoubleClick(object sender, EventArgs e)
+        {
+            if (InputBox("Rename item", "Enter the new name:",tvCurriculum.SelectedNode.Tag))
+                BindCurriculum();                
+        }
+
+        private void tvTechniques_DoubleClick(object sender, EventArgs e)
+        {
+            if (InputBox("Rename item", "Enter the new name:", tvTechniques.SelectedNode.Tag))
+                BindTechniques();
+        }
+
+        private void tvTechniques_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void btnTechUp_Click(object sender, EventArgs e)
+        {
+            if (tvTechniques.SelectedNode != null)
+            {
+                TreeNode tn = tvTechniques.SelectedNode;
+
+                if (tn.Index != 0)
+                    MoveUp(tn, tvTechniques);
+                else
+                    if (tn.Parent != null && tn.Parent.Index != 0)
+                    MoveToPrev(tn);
+            }
+            tvTechniques.Focus();
+        }
+
+        private void btnTechDown_Click(object sender, EventArgs e)
+        {
+            if (tvTechniques.SelectedNode != null)
+            {
+                TreeNode tn = tvTechniques.SelectedNode;
+
+                if (tn.NextNode != null)
+                    MoveDown(tn, tvTechniques);
+                else
+                    if (tn.Parent != null && tn.Parent.Index != tn.Parent.Nodes.Count - 1)
+                    MoveToNext(tn);
+            }
+            tvTechniques.Focus();
         }
     }
 }

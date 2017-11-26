@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace MartialArtsCurriculum
 {
-    public class CurriculumLevel
+    public class CurriculumLevel : iHasName
     {
-        public string name;
+        string _name;
+        public string name { get { return _name; } set { _name = value; } }
 
         public List<CurriculumItem> curriculum;
         public CurriculumItem AddCurriculum(string name)

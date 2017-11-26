@@ -26,3 +26,5 @@ C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurri
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.pdb
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\GradingListTemplate.xlsx
 C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\bin\Debug\GradingList.csv
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.csprojResolveAssemblyReference.cache
+C:\Users\Shane Poppleton\Documents\GitHub\MartialArtsCurriculum\MartialArtsCurriculum\obj\Debug\MartialArtsCurriculum.frmInputBox.resources

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace MartialArtsCurriculum
 {
-    public class CurriculumItem
+    public class CurriculumItem : iHasName
     {
-        public string name;
+        string _name;
+        public string name { get { return _name; } set { _name = value; } }
+
 
         public List<TechniqueCategory> categories;
         public TechniqueCategory AddTechCategory(string name)
