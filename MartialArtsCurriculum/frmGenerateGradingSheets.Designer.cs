@@ -50,10 +50,12 @@
             // 
             // lblTemplate
             // 
+            this.lblTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTemplate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTemplate.Location = new System.Drawing.Point(12, 22);
             this.lblTemplate.Name = "lblTemplate";
-            this.lblTemplate.Size = new System.Drawing.Size(201, 23);
+            this.lblTemplate.Size = new System.Drawing.Size(449, 23);
             this.lblTemplate.TabIndex = 1;
             // 
             // openFileDialog1
@@ -62,28 +64,34 @@
             // 
             // btnBrowseTemplate
             // 
-            this.btnBrowseTemplate.Location = new System.Drawing.Point(219, 22);
+            this.btnBrowseTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowseTemplate.Location = new System.Drawing.Point(467, 22);
             this.btnBrowseTemplate.Name = "btnBrowseTemplate";
             this.btnBrowseTemplate.Size = new System.Drawing.Size(28, 23);
             this.btnBrowseTemplate.TabIndex = 2;
             this.btnBrowseTemplate.Text = "...";
             this.btnBrowseTemplate.UseVisualStyleBackColor = true;
+            this.btnBrowseTemplate.Click += new System.EventHandler(this.btnBrowseTemplate_Click);
             // 
             // btnBrowseStudents
             // 
-            this.btnBrowseStudents.Location = new System.Drawing.Point(219, 67);
+            this.btnBrowseStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowseStudents.Location = new System.Drawing.Point(467, 67);
             this.btnBrowseStudents.Name = "btnBrowseStudents";
             this.btnBrowseStudents.Size = new System.Drawing.Size(28, 23);
             this.btnBrowseStudents.TabIndex = 5;
             this.btnBrowseStudents.Text = "...";
             this.btnBrowseStudents.UseVisualStyleBackColor = true;
+            this.btnBrowseStudents.Click += new System.EventHandler(this.btnBrowseStudents_Click);
             // 
             // lblStudents
             // 
+            this.lblStudents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStudents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStudents.Location = new System.Drawing.Point(12, 67);
             this.lblStudents.Name = "lblStudents";
-            this.lblStudents.Size = new System.Drawing.Size(201, 23);
+            this.lblStudents.Size = new System.Drawing.Size(449, 23);
             this.lblStudents.TabIndex = 4;
             // 
             // label4
@@ -97,17 +105,20 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(272, 9);
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerate.Location = new System.Drawing.Point(520, 9);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(110, 23);
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "&Generate Sheets";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(272, 38);
+            this.btnClose.Location = new System.Drawing.Point(520, 38);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 23);
             this.btnClose.TabIndex = 7;
@@ -119,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(396, 102);
+            this.ClientSize = new System.Drawing.Size(644, 102);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnBrowseStudents);

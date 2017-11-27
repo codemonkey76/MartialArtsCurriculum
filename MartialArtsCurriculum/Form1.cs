@@ -268,134 +268,8 @@ namespace MartialArtsCurriculum
             }
         }
 
-        public List<Student> GetStudents()
-        {
-            List<Student> students = new List<Student>();
-
-            string path = "GradingList.csv";
-            if (File.Exists(path))
-            {
-                using (TextFieldParser csvParser = new TextFieldParser(path))
-                {
-                    csvParser.CommentTokens = new string[] { "#" };
-                    csvParser.SetDelimiters(new string[] { "," });
-                    csvParser.HasFieldsEnclosedInQuotes = true;
-
-                    //Skip header row
-                    csvParser.ReadLine();
-
-                    while (!csvParser.EndOfData)
-                    {
-                        string[] fields = csvParser.ReadFields();
-                        Student student = new Student();
-                        student.FirstName = fields[0];
-                        student.LastName = fields[1];
-                        student.Instructor = fields[2];
-                        student.Category = fields[3];
-                        student.Level = fields[4];
-                        student.Rank = fields[5];
-                        student.RankAttempting = fields[6];
-                        students.Add(student);
-                    }
-                }
-            }
-            return students;
-        }
-        public List<CurriculumItem> GetStudentCurriculum(Student student)
-        {
-            CurriculumCategory cat = data.categories.Find(x => x.name == student.Category);
-            List<CurriculumLevel> levelList = new List<CurriculumLevel>();
-            bool found = false;
-            List<CurriculumItem> curriculumList = new List<CurriculumItem>();
-
-            foreach (CurriculumLevel level in cat.levels)
-            {
-                if (level.name == student.Level)
-                {
-                    foreach (CurriculumItem item in level.curriculum)
-                    {
-                        if (student.Rank == "")
-                            found = true;
-
-                        if (item.name == student.Rank)
-                        {
-                            found = true;
-                            continue;
-                        }
-
-                        if (found)
-                        {
-                            curriculumList.Add(item);
-                        }
-                        if (item.name == student.RankAttempting)
-                        {
-                            found = false;
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-
-            return curriculumList;
-        }
-
-        private void btnOutputGradingSheet_Click(object sender, EventArgs e)
-        {
-            string html = File.ReadAllText("html\\index.html");
-            string patternFirstName = "{{ FirstName }}";
-            string patternLastName = "{{ LastName }}";
-            string patternDate = "{{ Date }}";
-            string patternInstructor = "{{ Instructor }}";
-            string patternCurrentRank = "{{ CurrentRank }}";
-            string patternBeltAttempting = "{{ BeltAttempting }}";
-            string gradingDate = "24/11/2017";
-
-            List<Student> students = GetStudents();
-            if (!Directory.Exists("sheets"))
-                Directory.CreateDirectory("sheets");
-
-            foreach (Student student in students)
-            {
-                List<CurriculumItem> sheets = GetStudentCurriculum(student);
-                string outputHTML = html.Replace(patternFirstName, student.FirstName);
-                outputHTML = outputHTML.Replace(patternLastName, student.LastName);
-                outputHTML = outputHTML.Replace(patternDate, gradingDate);
-                outputHTML = outputHTML.Replace(patternInstructor, student.Instructor);
-                outputHTML = outputHTML.Replace(patternCurrentRank, student.Rank);
-                outputHTML = outputHTML.Replace(patternBeltAttempting, student.RankAttempting);
-
-                string startHTML = outputHTML.Substring(0, outputHTML.IndexOf("{{ StartCategorySection }}"));
-                string endHTML = outputHTML.Substring(outputHTML.IndexOf("{{ EndCategorySection }}") + 24);
-                Match m = Regex.Match(outputHTML, "{{ StartCategorySection }}(?<CategorySection>.*?){{ EndCategorySection }}", RegexOptions.Singleline);
-
-
-                string categoryHTML = m.Groups["CategorySection"].Value;
-                string startCatHTML = categoryHTML.Substring(0, categoryHTML.IndexOf("{{ StartTechniqueSection }}"));
-                string endCatHTML = categoryHTML.Substring(categoryHTML.IndexOf("{{ EndTechniqueSection }}") + 25);
-                Match m1 = Regex.Match(categoryHTML, "{{ StartTechniqueSection }}(?<TechniqueSection>.*?){{ EndTechniqueSection }}", RegexOptions.Singleline);
-                string techniqueHTML = m1.Groups["TechniqueSection"].Value;
-                foreach (CurriculumItem curriculum in sheets)
-                {
-                    string middleHTML = "";
-                    foreach (TechniqueCategory cat in curriculum.categories)
-                    {
-
-                        middleHTML += startCatHTML.Replace("{{ TechniqueCategory }}", cat.name);
-                        foreach (Technique tech in cat.techniques)
-                        {
-                            middleHTML += techniqueHTML.Replace("{{ Technique }}", tech.name);
-                        }
-                        middleHTML += endCatHTML;
-                    }
-                    string output = startHTML + middleHTML + endHTML;
-                    output = output.Replace("images/logo.png", "../html/images/logo.png");
-                    StreamWriter sw = File.CreateText("sheets\\" + student.FirstName + student.LastName + "-" + curriculum.name + ".html");
-                    sw.Write(output);
-                    sw.Close();
-                }
-            }            
-        }
+        
+        
 
         public bool InputBox(string caption, string prompt, object clickedNode)
         {
@@ -457,6 +331,12 @@ namespace MartialArtsCurriculum
                     MoveToNext(tn);
             }
             tvTechniques.Focus();
+        }
+
+        private void btnGenerateGradingSheets_Click(object sender, EventArgs e)
+        {
+            frmGenerateGradingSheets f = new frmGenerateGradingSheets(data);
+            f.ShowDialog();
         }
     }
 }
