@@ -44,6 +44,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGenerateGradingSheets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateGradingSheets.Designer.cs">
+      <DependentUpon>frmGenerateGradingSheets.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInputBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="TechniqueCategory.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateGradingSheets.resx">
+      <DependentUpon>frmGenerateGradingSheets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInputBox.resx">
       <DependentUpon>frmInputBox.cs</DependentUpon>
@@ -119,18 +128,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="html\css\app.css">
+    <AdditionalFiles Include="html\css\app.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="html\images\logo.png">
+    </AdditionalFiles>
+    <AdditionalFiles Include="html\images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="html\index.html">
+    </AdditionalFiles>
+    <AdditionalFiles Include="html\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="html\js\app.js">
+    </AdditionalFiles>
+    <AdditionalFiles Include="html\js\app.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </AdditionalFiles>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />

@@ -13,11 +13,18 @@ namespace MartialArtsCurriculum
     {
         CurriculumRoot data;
         CurriculumItem selectedCurriculum;
-
+        string DataFile;
+        string SavePath;
         public Form1()
         {
             InitializeComponent();
-            data = LoadData("Data.xml");
+
+            SavePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MartialArtsCurriculum");
+            DataFile = "Data.xml";
+            if (!Directory.Exists(SavePath))
+                Directory.CreateDirectory(SavePath);
+                
+            data = LoadData(Path.Combine(SavePath, DataFile));
             BindCurriculum();
             BindTechniques();
         }
@@ -71,51 +78,6 @@ namespace MartialArtsCurriculum
             return CurriculumRoot.Load(filename);
         }
 
-        CurriculumRoot TestData()
-        {
-            CurriculumRoot testData = new CurriculumRoot();
-
-            
-            CurriculumCategory tempCat = testData.AddCategory("Adults BJJ");
-            CurriculumLevel tempLevel = tempCat.AddLevel("White Belt");
-            CurriculumItem tempItem = tempLevel.AddCurriculum("White Belt - 1st Degree");
-            TechniqueCategory tempTechCat = tempItem.AddTechCategory("Knowledge");
-            Technique tempTech = tempTechCat.AddTechnique("Dojo etiquette, basic disease control, meaning of osu");
-
-            tempTechCat = tempItem.AddTechCategory("Solo Drills");            
-            tempTechCat.AddTechnique("Backward break fall");
-            tempTechCat.AddTechnique("Forward break fall");
-            tempTechCat.AddTechnique("Side break fall");
-
-            tempTechCat = tempItem.AddTechCategory("Partner Drill");
-            tempTechCat.AddTechnique("Run around the legs");
-            tempTechCat = tempItem.AddTechCategory("Standing");
-            tempTechCat.AddTechnique("Kumi kata (judo grips)");
-
-            return testData;
-        }
-
-        
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            XslCompiledTransform transform = new XslCompiledTransform();
-            string xsltString = File.ReadAllText("grading-sheet.xsl");
-
-            using (XmlReader reader = XmlReader.Create(new StringReader(xsltString)))
-            {
-                transform.Load(reader);
-            }
-
-            StringWriter results = new StringWriter();
-            string inputXml = File.ReadAllText("test.xml");
-            using (XmlReader reader = XmlReader.Create(new StringReader(inputXml)))
-            {
-                transform.Transform(reader, null, results);
-            }
-            File.WriteAllText("output.html", results.ToString());
-        }
-
         private void btnAddCurriculum_Click(object sender, EventArgs e)
         {
             frmCurriculum f = new frmCurriculum(data);
@@ -125,7 +87,7 @@ namespace MartialArtsCurriculum
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            data.Save("Data.xml");
+            data.Save(Path.Combine(SavePath, DataFile));
         }
 
         private void btnDeleteCurriculum_Click(object sender, EventArgs e)
@@ -305,33 +267,7 @@ namespace MartialArtsCurriculum
                 BindTechniques();
             }
         }
-        
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            //var converter = new BasicConverter(new PdfTools());
-            ////var converter = new SynchronizedConverter(new PdfTools());
-            
-            //var doc = new HtmlToPdfDocument()
-            //{
-            //    GlobalSettings = {
-            //        ColorMode = ColorMode.Color,
-            //        Orientation = DinkToPdf.Orientation.Portrait,
-            //        PaperSize = PaperKind.A4,
-            //        Out = @"C:\test.pdf",
-
-            //    },
-            //    Objects = {
-            //        new ObjectSettings() {
-            //            PagesCount = true,
-            //            HtmlContent = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur mauris eget ultrices  iaculis. Ut                               odio viverra, molestie lectus nec, venenatis turpis.",
-            //            WebSettings = { DefaultEncoding = "utf-8" },
-            //            HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
-            //        }
-            //    }
-            //};
-            //converter.Convert(doc);
-        }
         public List<Student> GetStudents()
         {
             List<Student> students = new List<Student>();
